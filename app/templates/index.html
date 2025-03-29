@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sum Calculator</title>
-    <script>
-        const validateInput = event => {
-            let inputField = event.target;
-            inputField.value = inputField.value.replace(/[^0-9,\\n]/g, '');
-        }
-    </script>
+    <link rel="stylesheet" href="/static/style.css">
+    <script defer src="/static/script.js"></script>
 </head>
 <body>
     <h2>Enter numbers separated by commas or new lines:</h2>
-    <form method="post" action="/add">
-        <textarea name="numbers" rows="5" cols="30" oninput="validateInput(event)"></textarea>
-        <br>
+    <form id="sumForm">
+        <div id="warning"></div>
+        <textarea name="numbers" rows="5" cols="30"></textarea>
         <button type="submit">Add</button>
     </form>
-    {% if result is not none %}
-        <h3>Sum: {{ result }}</h3>
-    {% endif %}
+    <h3 id="result">Sum: 0</h3>
 </body>
 </html>
