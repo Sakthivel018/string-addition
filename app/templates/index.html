@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculator</title>
+    <script>
+        const validateInput = event => {
+            let inputField = event.target;
+            inputField.value = inputField.value.replace(/[^0-9,\\n]/g, '');
+        }
+    </script>
+</head>
+<body>
+    <h2>Enter numbers separated by commas or new lines:</h2>
+    <form method="post" action="/add">
+        <textarea name="numbers" rows="5" cols="30" oninput="validateInput(event)"></textarea>
+        <br>
+        <button type="submit">Add</button>
+    </form>
+    {% if result is not none %}
+        <h3>Sum: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>
